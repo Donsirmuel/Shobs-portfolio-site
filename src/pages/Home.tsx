@@ -2,7 +2,9 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ProjectCard from "@/components/ProjectCard";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 import { projects } from "@/data/projects";
+import { siteInfo } from "@/data/siteInfo";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -13,23 +15,25 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
+      <BackToTop />
       <Hero />
       
       {/* About Section */}
-      <section className="py-20 bg-card">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gradient-to-b from-card to-background relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5" />
+        <div className="container mx-auto px-4 relative">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-display text-4xl md:text-5xl mb-6">
-              Hi, I'm Nancy
+            <h2 className="font-display text-4xl md:text-5xl mb-6 bg-gradient-to-r from-vibrant-pink to-vibrant-purple bg-clip-text text-transparent">
+              About {siteInfo.name}
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              A passionate graphic designer with over 5 years of experience crafting 
-              visual stories that resonate. I specialize in brand identity, digital design, 
-              and print media, using tools like CorelDRAW and Adobe Creative Suite to 
-              bring ideas to life. Every project is an opportunity to create something 
-              meaningful and memorable.
+              A passionate graphic designer with expertise in crafting 
+              visual stories that resonate and convert. Specializing in brand identity, print design, 
+              and packaging, using <span className="text-vibrant-pink font-semibold">CorelDRAW</span> and <span className="text-vibrant-purple font-semibold">Adobe Creative Suite</span> to 
+              bring bold ideas to life. Every project is an opportunity to create something 
+              extraordinary and unforgettable.
             </p>
-            <Button asChild variant="outline" size="lg">
+            <Button asChild variant="outline" size="lg" className="border-2 border-vibrant-purple hover:bg-vibrant-purple/10 hover-scale">
               <Link to="/contact">
                 Let's Collaborate
                 <ArrowRight className="ml-2 w-4 h-4" />
@@ -58,7 +62,7 @@ const Home = () => {
                 <ProjectCard
                   title={project.title}
                   description={project.description}
-                  image={project.image}
+                  image={project.images[0]}
                   category={project.category}
                 />
               </div>
@@ -66,7 +70,7 @@ const Home = () => {
           </div>
 
           <div className="text-center">
-            <Button asChild size="lg">
+            <Button asChild size="lg" className="bg-gradient-to-r from-vibrant-pink to-vibrant-purple hover:shadow-neon hover-scale">
               <Link to="/services">
                 Explore All Services
                 <ArrowRight className="ml-2 w-4 h-4" />

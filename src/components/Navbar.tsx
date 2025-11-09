@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ThemeToggle from "./ThemeToggle";
 import { siteInfo } from "@/data/siteInfo";
 
 const Navbar = () => {
@@ -56,6 +57,7 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
+            <ThemeToggle />
             <Button asChild variant="default" size="sm">
               <Link to="/contact">Get In Touch</Link>
             </Button>
@@ -92,6 +94,10 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
+              <div className="flex items-center justify-between pt-2 border-t border-border">
+                <span className="text-sm font-medium">Theme</span>
+                <ThemeToggle />
+              </div>
               <Button asChild className="w-full">
                 <Link to="/contact">Get In Touch</Link>
               </Button>

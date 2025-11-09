@@ -54,6 +54,10 @@ export default {
         creative: {
           pink: "hsl(var(--creative-pink))",
         },
+        "vibrant-pink": "hsl(var(--vibrant-pink))",
+        "vibrant-purple": "hsl(var(--vibrant-purple))",
+        "vibrant-orange": "hsl(var(--vibrant-orange))",
+        "vibrant-cyan": "hsl(var(--vibrant-cyan))",
       },
       borderRadius: {
         lg: "var(--radius)",

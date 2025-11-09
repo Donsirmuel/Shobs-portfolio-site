@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 import { siteInfo } from "@/data/siteInfo";
 import { Mail, MessageCircle, Instagram, ExternalLink } from "lucide-react";
 import { Card } from "@/components/ui/card";
@@ -40,12 +41,13 @@ const Contact = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
+      <BackToTop />
       
       {/* Hero Section */}
       <section className="pt-32 pb-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h1 className="font-display text-5xl md:text-6xl mb-6 animate-fade-in">
+            <h1 className="font-display text-5xl md:text-6xl mb-6 animate-fade-in bg-gradient-to-r from-vibrant-pink to-vibrant-purple bg-clip-text text-transparent">
               Let's Create Together
             </h1>
             <p className="text-lg text-muted-foreground animate-fade-in">
