@@ -6,13 +6,24 @@ import { siteInfo } from "@/data/siteInfo";
 const Hero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Animated Background with Gradient Mesh */}
-      <div className="absolute inset-0 -z-10 bg-gradient-creative">
-        <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+      {/* Bold Hero Image/Video Background */}
+      <div className="absolute inset-0 -z-10">
+        {/* Background Image with Overlay */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1920&h=1080&fit=crop')",
+          }}
+        />
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/85 to-background/90" />
+        {/* Animated gradient accents */}
+        <div className="absolute inset-0 bg-gradient-creative opacity-40" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-5" />
         <div className="absolute top-0 left-0 w-full h-full">
-          <div className="absolute top-20 right-10 w-96 h-96 bg-vibrant-purple/20 rounded-full blur-3xl animate-float" />
-          <div className="absolute bottom-20 left-10 w-[500px] h-[500px] bg-vibrant-pink/20 rounded-full blur-3xl animate-float-delayed" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-vibrant-orange/10 rounded-full blur-3xl animate-pulse-slow" />
+          <div className="absolute top-20 right-10 w-96 h-96 bg-vibrant-purple/30 rounded-full blur-3xl animate-float" />
+          <div className="absolute bottom-20 left-10 w-[500px] h-[500px] bg-vibrant-pink/30 rounded-full blur-3xl animate-float-delayed" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-vibrant-orange/20 rounded-full blur-3xl animate-pulse-slow" />
         </div>
       </div>
 
@@ -62,8 +73,8 @@ const Hero = () => {
             <div className="w-24 h-24 bg-gradient-to-br from-vibrant-purple to-vibrant-orange rounded-lg rotate-45" />
           </div>
 
-          {/* Scroll indicator */}
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+          {/* Scroll indicator - hidden on mobile to avoid obstructing buttons */}
+          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
             <div className="w-6 h-10 border-2 border-vibrant-pink rounded-full flex justify-center p-1">
               <div className="w-1.5 h-3 bg-vibrant-pink rounded-full" />
             </div>

@@ -21,8 +21,9 @@ const ProjectCard = ({ title, description, image, category }: ProjectCardProps) 
       <div className="relative aspect-[4/3] overflow-hidden">
         <img
           src={image}
-          alt={title}
+          alt={`${title} - ${category} design project by Shobs Creations`}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          loading="lazy"
         />
         <div
           className={`absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/50 to-transparent transition-opacity duration-300 ${

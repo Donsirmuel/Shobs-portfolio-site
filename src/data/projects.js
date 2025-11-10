@@ -12,6 +12,9 @@ export const projects = [
     ],
     category: "Logo Design",
     featured: true,
+    challenge: "Create a versatile logo system that works across multiple tech startup brands while maintaining individual identity.",
+    process: "Started with competitor analysis, created mood boards, sketched 50+ concepts, refined top 5, and delivered final logos with comprehensive brand guidelines.",
+    outcome: "Delivered 6 unique logos that perfectly captured each startup's vision. All clients reported increased brand recognition and professional credibility.",
   },
   {
     id: 2,
@@ -23,6 +26,9 @@ export const projects = [
     ],
     category: "Branding & Identity",
     featured: true,
+    challenge: "Design a cohesive brand identity that communicates luxury and sophistication while appealing to a diverse clientele.",
+    process: "Conducted in-depth interviews with the owner, researched luxury dining trends, created elegant typography pairings, and developed a premium color palette.",
+    outcome: "Complete brand package including logo, menu designs, business cards, and signage. Restaurant saw 40% increase in reservations within first month.",
   },
   {
     id: 3,
@@ -35,6 +41,9 @@ export const projects = [
     ],
     category: "Print Design",
     featured: true,
+    challenge: "Create eye-catching flyers that stand out in crowded urban environments and drive event attendance.",
+    process: "Used bold typography, vibrant gradients, and dynamic compositions. Tested different color schemes and layouts with focus groups.",
+    outcome: "Series of 12 flyers that increased event attendance by 60%. Designs were shared widely on social media, generating organic buzz.",
   },
   {
     id: 4,
@@ -46,6 +55,9 @@ export const projects = [
     ],
     category: "Mockups & Packaging",
     featured: true,
+    challenge: "Design premium packaging that communicates product quality and stands out on crowded retail shelves.",
+    process: "Created minimalist designs with subtle textures, developed eco-friendly material specs, and produced photorealistic 3D mockups for client presentation.",
+    outcome: "Packaging design led to retail partnerships with major beauty stores. Product sales exceeded targets by 85% in first quarter.",
   },
   {
     id: 5,
@@ -57,6 +69,9 @@ export const projects = [
     ],
     category: "Branding & Identity",
     featured: true,
+    challenge: "Develop comprehensive brand guidelines that ensure consistency across all company touchpoints and marketing materials.",
+    process: "Audited existing brand assets, defined brand personality, created detailed usage rules, and designed a 60-page brand guideline document.",
+    outcome: "Complete brand guidelines adopted company-wide. Resulted in 95% brand consistency across all departments and improved brand recognition.",
   },
   {
     id: 6,
@@ -70,6 +85,9 @@ export const projects = [
     ],
     category: "Illustration",
     featured: true,
+    challenge: "Create memorable mascot characters that resonate with target audience and work across various media formats.",
+    process: "Sketched multiple character concepts, refined based on client feedback, created style guides, and delivered finals in multiple file formats.",
+    outcome: "Characters became beloved brand ambassadors. Merchandise featuring the designs generated additional revenue stream worth $50K in first year.",
   },
   {
     id: 7,
@@ -81,6 +99,9 @@ export const projects = [
     ],
     category: "Logo Design",
     featured: false,
+    challenge: "Design modern, tech-forward logos that communicate innovation while remaining timeless and scalable.",
+    process: "Researched tech industry trends, created geometric and abstract concepts, tested scalability across digital and print media.",
+    outcome: "Delivered scalable logo systems used across websites, apps, and marketing materials. Clients reported enhanced professional image.",
   },
   {
     id: 8,
@@ -92,6 +113,9 @@ export const projects = [
     ],
     category: "Print Design",
     featured: false,
+    challenge: "Create engaging magazine layouts that balance readability with visual impact for a lifestyle publication.",
+    process: "Designed grid systems, selected typography pairings, created image treatments, and developed consistent style throughout 120-page magazine.",
+    outcome: "Magazine won regional design award. Publication saw 30% increase in readership and positive feedback on modern, fresh design approach.",
   },
   {
     id: 9,
@@ -104,6 +128,9 @@ export const projects = [
     ],
     category: "Mockups & Packaging",
     featured: false,
+    challenge: "Design beverage packaging that tells the brand story while maximizing shelf visibility in competitive retail environment.",
+    process: "Developed distinctive label designs, incorporated sustainable materials, created photorealistic mockups, and tested shelf impact.",
+    outcome: "Packaging design contributed to 200% sales increase. Brand secured distribution deals with major retailers nationwide.",
   },
 ];
 
