@@ -1,4 +1,4 @@
-import { Instagram, ExternalLink, Mail } from "lucide-react";
+import { Instagram, Mail, MessageCircle } from "lucide-react";
 import { siteInfo } from "@/data/siteInfo";
 
 const Footer = () => {
@@ -29,6 +29,11 @@ const Footer = () => {
                 </a>
               </li>
               <li>
+                <a href="/blog" className="text-muted-foreground hover:text-accent transition-colors">
+                  Blog
+                </a>
+              </li>
+              <li>
                 <a href="/contact" className="text-muted-foreground hover:text-accent transition-colors">
                   Contact
                 </a>
@@ -40,6 +45,15 @@ const Footer = () => {
             <h4 className="font-semibold mb-3">Connect</h4>
             <div className="flex gap-4">
               <a
+                href={siteInfo.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-accent transition-colors"
+                aria-label="WhatsApp"
+              >
+                <MessageCircle className="w-5 h-5" />
+              </a>
+              <a
                 href={siteInfo.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -47,15 +61,6 @@ const Footer = () => {
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href={siteInfo.behance}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-accent transition-colors"
-                aria-label="Behance"
-              >
-                <ExternalLink className="w-5 h-5" />
               </a>
               <a
                 href={`mailto:${siteInfo.email}`}

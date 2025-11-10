@@ -8,106 +8,83 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 0 0% 13%;
-
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 13%;
-
+    --card-foreground: 222 47% 11%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 13%;
-
-    --primary: 0 0% 13%;
-    --primary-foreground: 0 0% 98%;
-
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 13%;
-
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 40%;
-
-    --accent: 340 82% 52%;
-    --accent-foreground: 0 0% 98%;
-
-    --destructive: 0 84.2% 60.2%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 340 82% 52%;
-
-    --radius: 0.75rem;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 262 83% 58%;
+    --radius: 0.5rem;
     
-    /* Custom design tokens - Vibrant color palette */
-    --creative-pink: 340 82% 52%;
-    --vibrant-pink: 330 85% 55%;
-    --vibrant-purple: 270 70% 60%;
-    --vibrant-orange: 25 95% 60%;
-    --vibrant-cyan: 190 85% 55%;
-    --deep-gray: 0 0% 13%;
-    --light-gray: 0 0% 98%;
-    --mid-gray: 0 0% 40%;
+    /* Creative Colors */
+    --creative-pink: 330 81% 60%;
+    --creative-purple: 262 83% 58%;
+    --creative-orange: 24 95% 60%;
+    --creative-cyan: 190 90% 50%;
     
-    /* Shadows */
-    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
-    --shadow-lift: 0 20px 25px -5px rgba(233, 30, 99, 0.1), 0 10px 10px -5px rgba(233, 30, 99, 0.04);
-    --shadow-neon: 0 0 30px rgba(233, 30, 99, 0.4), 0 0 60px rgba(233, 30, 99, 0.2);
+    /* Vibrant Shadows */
+    --shadow-creative: 0 10px 40px -10px hsl(262 83% 58% / 0.2);
+    --shadow-neon: 0 0 30px hsl(262 83% 58% / 0.3);
     
-    /* Transitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* Grid Pattern */
+    --grid-color: 214 32% 91%;
     
-    /* Gradients */
-    --gradient-creative: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--card)) 50%, hsl(var(--background)) 100%);
-
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 0 0% 8%;
-    --foreground: 0 0% 98%;
-
-    --card: 0 0% 12%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 0 0% 12%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 8%;
-
-    --secondary: 0 0% 18%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 0 0% 18%;
-    --muted-foreground: 0 0% 65%;
-
-    --accent: 340 82% 52%;
-    --accent-foreground: 0 0% 98%;
-
-    --destructive: 0 62.8% 30.6%;
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 98%;
+    --popover: 217 33% 17%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 262 83% 65%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217 33% 20%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 20%;
+    --muted-foreground: 215 20% 70%;
+    --accent: 262 83% 65%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 63% 50%;
     --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 22%;
-    --input: 0 0% 22%;
-    --ring: 340 82% 52%;
+    --border: 217 33% 25%;
+    --input: 217 33% 25%;
+    --ring: 262 83% 65%;
     
-    --gradient-creative: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--card)) 50%, hsl(var(--background)) 100%);
+    /* Creative Colors for Dark Mode */
+    --creative-pink: 330 81% 70%;
+    --creative-purple: 262 83% 70%;
+    --creative-orange: 24 95% 70%;
+    --creative-cyan: 190 90% 60%;
+    
+    /* Vibrant Shadows for Dark Mode */
+    --shadow-creative: 0 10px 40px -10px hsl(262 83% 65% / 0.3);
+    --shadow-neon: 0 0 30px hsl(262 83% 65% / 0.4);
+    
+    /* Grid Pattern */
+    --grid-color: 217 33% 20%;
   }
 }
 

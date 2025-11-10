@@ -3,7 +3,7 @@ import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import { siteInfo } from "@/data/siteInfo";
-import { Mail, MessageCircle, Instagram, ExternalLink } from "lucide-react";
+import { Mail, MessageCircle, Instagram } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 const Contact = () => {
@@ -11,7 +11,7 @@ const Contact = () => {
     {
       icon: MessageCircle,
       title: "WhatsApp",
-      description: "Quick response guaranteed",
+      description: siteInfo.whatsappNumber,
       link: siteInfo.whatsapp,
       label: "Chat on WhatsApp",
     },
@@ -28,13 +28,6 @@ const Contact = () => {
       description: "See my latest work",
       link: siteInfo.instagram,
       label: "Follow on Instagram",
-    },
-    {
-      icon: ExternalLink,
-      title: "Behance",
-      description: "Portfolio showcase",
-      link: siteInfo.behance,
-      label: "View on Behance",
     },
   ];
 

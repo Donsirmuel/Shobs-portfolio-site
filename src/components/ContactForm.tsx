@@ -10,6 +10,7 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     message: "",
   });
 
@@ -17,17 +18,25 @@ const ContactForm = () => {
     e.preventDefault();
     
     // Validate form
-    if (!formData.name || !formData.email || !formData.message) {
+    if (!formData.name || !formData.email || !formData.phone || !formData.message) {
       toast.error("Please fill in all fields");
       return;
     }
 
-    // Create mailto link with form data
-    const subject = `Portfolio Inquiry from ${formData.name}`;
-    const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
-    window.location.href = `mailto:${siteInfo.email}?subject=${encodeURIComponent(subject)}&body=${body}`;
+    // Create WhatsApp message
+    const message = `*New Portfolio Inquiry*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.phone}%0A%0A*Message:*%0A${formData.message}`;
+    const whatsappUrl = `https://wa.me/2349031386928?text=${message}`;
     
-    toast.success("Opening your email client...");
+    window.open(whatsappUrl, '_blank');
+    toast.success("Opening WhatsApp...");
+    
+    // Reset form
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    });
   };
 
   return (
@@ -53,6 +62,19 @@ const ContactForm = () => {
           placeholder="your@email.com"
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          required
+          className="mt-1.5"
+        />
+      </div>
+
+      <div>
+        <Label htmlFor="phone">WhatsApp Number *</Label>
+        <Input
+          id="phone"
+          type="tel"
+          placeholder="+234 903 138 6928"
+          value={formData.phone}
+          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
           required
           className="mt-1.5"
         />
