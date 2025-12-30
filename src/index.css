@@ -35,6 +35,12 @@ All colors MUST be HSL.
     --creative-orange: 24 95% 60%;
     --creative-cyan: 190 90% 50%;
     
+    /* Vibrant Colors for Hero */
+    --vibrant-pink: 330 81% 60%;
+    --vibrant-purple: 262 83% 58%;
+    --vibrant-orange: 24 95% 60%;
+    --vibrant-cyan: 190 90% 50%;
+    
     /* Vibrant Shadows */
     --shadow-creative: 0 10px 40px -10px hsl(262 83% 58% / 0.2);
     --shadow-neon: 0 0 30px hsl(262 83% 58% / 0.3);
@@ -78,6 +84,12 @@ All colors MUST be HSL.
     --creative-purple: 262 83% 70%;
     --creative-orange: 24 95% 70%;
     --creative-cyan: 190 90% 60%;
+    
+    /* Vibrant Colors for Hero (Dark Mode) */
+    --vibrant-pink: 330 81% 70%;
+    --vibrant-purple: 262 83% 70%;
+    --vibrant-orange: 24 95% 70%;
+    --vibrant-cyan: 190 90% 60%;
     
     /* Vibrant Shadows for Dark Mode */
     --shadow-creative: 0 10px 40px -10px hsl(262 83% 65% / 0.3);
