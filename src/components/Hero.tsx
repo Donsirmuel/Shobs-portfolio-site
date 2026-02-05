@@ -39,16 +39,18 @@ const Hero = () => {
               </div>
             </div>
 
-            <h1 className="font-display text-6xl md:text-8xl lg:text-9xl mb-8 text-balance leading-tight bg-gradient-to-r from-vibrant-pink via-vibrant-purple to-vibrant-orange bg-clip-text text-transparent animate-gradient">
-              {siteInfo.tagline}
+            <h1 className="font-display text-6xl md:text-8xl lg:text-9xl mb-8 text-balance leading-tight">
+              <span className="text-gradient-hero">
+                {siteInfo.tagline}
+              </span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-foreground/80 mb-4 max-w-3xl mx-auto text-balance font-medium">
+            <p className="text-xl md:text-2xl text-foreground mb-4 max-w-3xl mx-auto text-balance font-medium">
               {siteInfo.name}
             </p>
             
-            <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto text-balance">
-              Crafting visual stories with <span className="text-vibrant-pink font-semibold">CorelDRAW</span> & <span className="text-vibrant-purple font-semibold">Adobe Creative Suite</span>. 
+            <p className="text-lg md:text-xl text-foreground/70 mb-12 max-w-2xl mx-auto text-balance">
+              Crafting visual stories with <span className="text-creative-pink font-semibold">CorelDRAW</span> & <span className="text-creative-purple font-semibold">Adobe Creative Suite</span>. 
               Turning ideas into stunning designs that captivate and convert.
             </p>
             
