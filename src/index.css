@@ -118,16 +118,16 @@ All colors MUST be HSL.
 
 @layer utilities {
   .hover-lift {
-    transition: var(--transition-smooth);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
   .hover-lift:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-lift);
+    box-shadow: var(--shadow-creative);
   }
   
   .hover-scale {
-    transition: var(--transition-smooth);
+    transition: transform 0.3s ease;
   }
   
   .hover-scale:hover {
@@ -143,6 +143,35 @@ All colors MUST be HSL.
       linear-gradient(to right, hsl(var(--border)) 1px, transparent 1px),
       linear-gradient(to bottom, hsl(var(--border)) 1px, transparent 1px);
     background-size: 40px 40px;
+  }
+  
+  .bg-gradient-creative {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--vibrant-pink) / 0.1) 0%,
+      hsl(var(--vibrant-purple) / 0.15) 50%,
+      hsl(var(--vibrant-orange) / 0.1) 100%
+    );
+  }
+  
+  .text-gradient-hero {
+    background: linear-gradient(
+      to right,
+      hsl(var(--vibrant-pink)),
+      hsl(var(--vibrant-purple)),
+      hsl(var(--vibrant-orange))
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .text-creative-pink {
+    color: hsl(var(--vibrant-pink));
+  }
+  
+  .text-creative-purple {
+    color: hsl(var(--vibrant-purple));
   }
   
   .shadow-neon {
