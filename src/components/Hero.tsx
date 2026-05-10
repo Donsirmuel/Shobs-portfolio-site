@@ -14,9 +14,9 @@ const Hero = () => {
       <div aria-hidden className="absolute inset-0 bg-noise opacity-[0.06] mix-blend-overlay -z-10" />
 
       <div className="container mx-auto px-6 lg:px-10">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-6 items-center">
+        <div className="grid md:grid-cols-12 gap-10 md:gap-8 items-center">
           {/* Left — Editorial copy */}
-          <div className="lg:col-span-6 relative">
+          <div className="md:col-span-6 relative">
             <div className="flex items-center gap-3 mb-8 animate-fade-in">
               <span className="h-px w-10 bg-foreground/40" />
               <span className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
@@ -24,7 +24,7 @@ const Hero = () => {
               </span>
             </div>
 
-            <h1 className="font-display text-[clamp(3rem,8vw,7rem)] leading-[0.95] text-foreground text-balance animate-fade-in">
+            <h1 className="font-display text-[clamp(2.75rem,7vw,7rem)] leading-[0.95] text-foreground text-balance animate-fade-in">
               Design that <span className="font-serif-italic text-primary">whispers,</span>{" "}
               brands that <span className="font-serif-italic">roar.</span>
             </h1>
@@ -53,7 +53,6 @@ const Hero = () => {
               </Button>
             </div>
 
-            {/* Stats / proof */}
             <dl className="mt-14 grid grid-cols-3 gap-6 max-w-md animate-fade-in" style={{ animationDelay: "360ms" }}>
               {[
                 { k: "120+", v: "Brands shaped" },
@@ -68,12 +67,15 @@ const Hero = () => {
             </dl>
           </div>
 
-          {/* Right — Showcase image */}
-          <div className="lg:col-span-6 relative animate-fade-in" style={{ animationDelay: "180ms" }}>
-            <div className="relative aspect-[4/5] lg:aspect-[5/6] w-full">
-              {/* Decorative frame */}
-              <div className="absolute -inset-4 bg-card/40 backdrop-blur-sm rounded-[2.5rem] -z-10" />
-              <div className="absolute inset-0 rounded-[2rem] overflow-hidden shadow-editorial ring-1 ring-foreground/5">
+          {/* Right — Showcase collage with 3D depth */}
+          <div className="md:col-span-6 relative animate-fade-in perspective-1000" style={{ animationDelay: "180ms" }}>
+            <div className="relative aspect-[4/5] md:aspect-[5/6] w-full">
+              {/* Tilted backing cards (peek out behind) */}
+              <div aria-hidden className="absolute inset-0 rounded-[2rem] bg-accent/30 -z-10" style={{ transform: "rotate(-4deg) translate(-14px, 18px)" }} />
+              <div aria-hidden className="absolute inset-0 rounded-[2rem] bg-secondary/50 -z-10" style={{ transform: "rotate(3deg) translate(18px, 10px)" }} />
+
+              {/* Main showcase image */}
+              <div className="absolute inset-0 rounded-[2rem] overflow-hidden shadow-editorial ring-1 ring-foreground/10" style={{ transform: "rotate(-1.5deg)" }}>
                 <img
                   src={heroShowcase}
                   alt="Shobs Creations design showcase: editorial spread, packaging and digital mockups arranged with sculptural organic shapes"
@@ -82,17 +84,50 @@ const Hero = () => {
                   width={1536}
                   height={1280}
                 />
+                <svg aria-hidden className="absolute top-3 right-3 w-16 h-16 text-background animate-spin-slow opacity-90" viewBox="0 0 100 100">
+                  <defs>
+                    <path id="hero-circ" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0" />
+                  </defs>
+                  <text fontSize="9.5" letterSpacing="2.5" fill="currentColor" fontFamily="Inter Tight, sans-serif">
+                    <textPath href="#hero-circ">SHOBS · CREATIONS · GRAPHIC · STUDIO ·</textPath>
+                  </text>
+                  <circle cx="50" cy="50" r="3" fill="currentColor" />
+                </svg>
               </div>
 
-              {/* Floating chips */}
-              <div className="absolute -left-4 top-10 hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-card/90 backdrop-blur shadow-md border border-border animate-float">
+              {/* Floating: Open for commissions */}
+              <div className="absolute -left-3 top-8 flex items-center gap-2 px-4 py-2 rounded-full bg-card/95 backdrop-blur shadow-lg border border-border animate-float">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                <span className="text-xs uppercase tracking-wider">Open for commissions</span>
+                <span className="text-[10px] md:text-xs uppercase tracking-wider">Open for commissions</span>
               </div>
 
-              <div className="absolute -right-2 bottom-12 hidden md:block px-5 py-4 rounded-2xl bg-foreground text-background shadow-xl animate-float-delayed">
-                <p className="font-display text-2xl leading-none">A+</p>
-                <p className="text-[10px] uppercase tracking-widest opacity-70 mt-1">Craft rating</p>
+              {/* Floating: Type specimen */}
+              <div className="absolute -left-6 bottom-20 hidden sm:block px-4 py-3 rounded-2xl bg-card border border-border shadow-xl animate-float-delayed" style={{ transform: "rotate(-6deg)" }}>
+                <p className="text-[9px] uppercase tracking-[0.2em] text-muted-foreground">Typeface</p>
+                <p className="font-display text-3xl leading-none mt-1">Aa<span className="font-serif-italic text-primary">Bb</span></p>
+                <p className="text-[9px] uppercase tracking-widest text-muted-foreground mt-1">Instrument · Inter</p>
+              </div>
+
+              {/* Floating: Color palette */}
+              <div className="absolute -right-4 top-24 px-4 py-3 rounded-2xl bg-card border border-border shadow-xl animate-float" style={{ transform: "rotate(5deg)", animationDelay: "1s" }}>
+                <p className="text-[9px] uppercase tracking-[0.2em] text-muted-foreground mb-2">Palette · 04</p>
+                <div className="flex gap-1.5">
+                  {["hsl(14 60% 48%)", "hsl(35 60% 52%)", "hsl(95 18% 38%)", "hsl(20 14% 12%)"].map((c) => (
+                    <span key={c} className="w-5 h-5 rounded-full ring-1 ring-foreground/15" style={{ background: c }} />
+                  ))}
+                </div>
+              </div>
+
+              {/* Floating: Craft rating */}
+              <div className="absolute -right-2 bottom-10 px-5 py-4 rounded-2xl bg-foreground text-background shadow-xl animate-float-delayed" style={{ transform: "rotate(4deg)" }}>
+                <p className="font-display text-3xl leading-none">A+</p>
+                <p className="text-[9px] uppercase tracking-widest opacity-70 mt-1">Craft rating</p>
+              </div>
+
+              {/* Designer-y annotation */}
+              <div className="absolute -bottom-3 left-6 hidden md:flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                <span className="h-px w-6 bg-foreground/30" />
+                Fig. 01 — Studio Reel
               </div>
             </div>
           </div>
