@@ -1,6 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Calendar, User } from "lucide-react";
+import { Calendar, ArrowUpRight } from "lucide-react";
 
 interface BlogCardProps {
   title: string;
@@ -12,42 +11,45 @@ interface BlogCardProps {
 }
 
 const BlogCard = ({ title, excerpt, image, author, date, category }: BlogCardProps) => {
-  const formattedDate = new Date(date).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
+  const formattedDate = new Date(date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
   });
 
   return (
-    <Card className="overflow-hidden hover-lift group cursor-pointer border-0 shadow-md">
-      <div className="relative aspect-[16/10] overflow-hidden">
-        <img
-          src={image}
-          alt={`Blog post: ${title}`}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          loading="lazy"
-        />
-        <Badge className="absolute top-4 left-4 bg-vibrant-pink text-white">
-          {category}
-        </Badge>
+    <div className="group relative perspective-1000 cursor-pointer">
+      {/* Sticker */}
+      <div className="absolute -top-3 left-4 z-20 sticker px-3 py-1 text-[10px] uppercase tracking-[0.2em]">
+        {category}
       </div>
-      <div className="p-6">
-        <h3 className="font-display text-xl mb-3 group-hover:text-vibrant-pink transition-colors">
-          {title}
-        </h3>
-        <p className="text-muted-foreground mb-4 line-clamp-2">{excerpt}</p>
-        <div className="flex items-center gap-4 text-sm text-muted-foreground">
-          <div className="flex items-center gap-1">
-            <User className="w-4 h-4" />
-            <span>{author}</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <Calendar className="w-4 h-4" />
-            <span>{formattedDate}</span>
-          </div>
+
+      <Card className="tilt-3d sheen overflow-hidden border-0 shadow-md rounded-2xl bg-card">
+        <div className="relative aspect-[16/10] overflow-hidden">
+          <img
+            src={image}
+            alt={`Blog post: ${title}`}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08]"
+            loading="lazy"
+          />
         </div>
-      </div>
-    </Card>
+        <div className="p-6">
+          <div className="flex items-center justify-between mb-3 text-xs text-muted-foreground">
+            <div className="flex items-center gap-1.5">
+              <Calendar className="w-3.5 h-3.5" />
+              <span>{formattedDate}</span>
+              <span className="mx-1">·</span>
+              <span>{author}</span>
+            </div>
+            <ArrowUpRight className="w-4 h-4 text-foreground/60 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </div>
+          <h3 className="font-display text-2xl leading-tight mb-2 group-hover:text-primary transition-colors">
+            {title}
+          </h3>
+          <p className="text-sm text-muted-foreground line-clamp-2">{excerpt}</p>
+        </div>
+      </Card>
+    </div>
   );
 };
 
