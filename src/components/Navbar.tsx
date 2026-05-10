@@ -39,8 +39,9 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="text-2xl font-display font-bold">
-            {siteInfo.name}
+          <Link to="/" className="text-3xl font-display tracking-tight leading-none">
+            {siteInfo.name.split(" ")[0]}
+            <span className="text-primary font-serif-italic">.</span>
           </Link>
 
           {/* Desktop Navigation */}
