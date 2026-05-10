@@ -176,4 +176,86 @@
   .animate-bounce-slow { animation: bounce-slow 3.5s ease-in-out infinite; }
   .animate-blob { animation: blob-morph 18s ease-in-out infinite; }
   .animate-marquee { animation: marquee 40s linear infinite; }
+
+  /* ===== 3D / playground utilities ===== */
+  .perspective-1000 { perspective: 1000px; }
+  .preserve-3d { transform-style: preserve-3d; }
+
+  /* Subtle tilt-on-hover. Pair with `group` parent + `perspective-1000`. */
+  .tilt-3d {
+    transform-style: preserve-3d;
+    transition: transform .6s cubic-bezier(.2,.8,.2,1), box-shadow .6s cubic-bezier(.2,.8,.2,1);
+    will-change: transform;
+  }
+  .group:hover .tilt-3d {
+    transform: rotateX(4deg) rotateY(-6deg) translateY(-6px);
+    box-shadow:
+      -18px 22px 40px -20px hsl(var(--primary) / 0.35),
+      14px 18px 50px -22px hsl(var(--accent) / 0.30),
+      0 30px 60px -30px hsl(var(--foreground) / 0.35);
+  }
+
+  /* Layered "stacked card" shadow behind tiles */
+  .card-stack {
+    position: relative;
+  }
+  .card-stack::before,
+  .card-stack::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    z-index: -1;
+    transition: transform .5s cubic-bezier(.2,.8,.2,1), opacity .5s;
+    pointer-events: none;
+  }
+  .card-stack::before {
+    background: hsl(var(--accent) / 0.55);
+    transform: translate(8px, 8px) rotate(-1.2deg);
+    opacity: .55;
+  }
+  .card-stack::after {
+    background: hsl(var(--secondary));
+    transform: translate(-6px, 12px) rotate(1.8deg);
+    opacity: .5;
+  }
+  .group:hover .card-stack::before { transform: translate(14px, 14px) rotate(-2deg); opacity: .75; }
+  .group:hover .card-stack::after  { transform: translate(-12px, 18px) rotate(2.6deg); opacity: .7; }
+
+  /* Animated gradient sheen overlay for tiles */
+  .sheen {
+    position: relative; overflow: hidden; isolation: isolate;
+  }
+  .sheen::after {
+    content: "";
+    position: absolute; inset: -20% -50%;
+    background: linear-gradient(115deg, transparent 35%, hsl(var(--background) / 0.55) 50%, transparent 65%);
+    transform: translateX(-120%);
+    transition: transform 1.1s cubic-bezier(.2,.8,.2,1);
+    pointer-events: none;
+    z-index: 2;
+  }
+  .group:hover .sheen::after { transform: translateX(120%); }
+
+  /* Hand-stuck "sticker" badge */
+  .sticker {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: hsl(var(--foreground)); color: hsl(var(--background));
+    border-radius: 9999px;
+    box-shadow: 0 6px 18px -8px hsl(var(--foreground) / 0.6),
+                inset 0 0 0 2px hsl(var(--background) / 0.15);
+    transform: rotate(-8deg);
+    transition: transform .4s cubic-bezier(.2,.8,.2,1);
+  }
+  .group:hover .sticker { transform: rotate(4deg) scale(1.06); }
+
+  /* Tiny color-swatch row (designer palette feel) */
+  .swatch-row { display: inline-flex; gap: 4px; }
+  .swatch-row > span {
+    width: 10px; height: 10px; border-radius: 9999px;
+    box-shadow: inset 0 0 0 1px hsl(var(--foreground) / 0.12);
+  }
+
+  @keyframes spin-slow { from { transform: rotate(0) } to { transform: rotate(360deg) } }
+  .animate-spin-slow { animation: spin-slow 22s linear infinite; }
 }
