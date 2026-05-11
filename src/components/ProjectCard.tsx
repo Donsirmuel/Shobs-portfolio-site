@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import ImageLightbox from "@/components/ImageLightbox";
+import { useCursorTilt } from "@/hooks/useCursorTilt";
 
 interface ProjectCardProps {
   title: string;
@@ -31,6 +32,7 @@ const ProjectCard = ({ title, description, image, images, category }: ProjectCar
 
   const projectImages = images || [image];
   const swatches = paletteFor(title + category);
+  const tilt = useCursorTilt(7);
 
   const handleImageClick = () => {
     setCurrentImageIndex(0);
@@ -42,7 +44,13 @@ const ProjectCard = ({ title, description, image, images, category }: ProjectCar
 
   return (
     <>
-      <div className="group relative perspective-1000 cursor-pointer" onClick={handleImageClick}>
+      <div
+        ref={tilt.ref}
+        onMouseMove={tilt.onMouseMove}
+        onMouseLeave={tilt.onMouseLeave}
+        className="group relative perspective-1000 cursor-pointer"
+        onClick={handleImageClick}
+      >
         {/* Floating sticker — "01 / Project" feel */}
         <div className="absolute -top-3 -left-3 z-20 sticker px-3 py-1.5 text-[10px] uppercase tracking-[0.2em] font-medium">
           {category}
