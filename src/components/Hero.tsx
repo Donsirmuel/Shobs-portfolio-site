@@ -68,7 +68,7 @@ const Hero = () => {
           </div>
 
           {/* Right — Showcase collage with 3D depth */}
-          <div className="md:col-span-6 relative animate-fade-in perspective-1000" style={{ animationDelay: "180ms" }}>
+          <div className="md:col-span-6 relative animate-fade-in perspective-1000 mx-auto w-full max-w-[18rem] sm:max-w-sm md:max-w-none" style={{ animationDelay: "180ms" }}>
             <div className="relative aspect-[4/5] md:aspect-[5/6] w-full">
               {/* Tilted backing cards (peek out behind) */}
               <div aria-hidden className="absolute inset-0 rounded-[2rem] bg-accent/30 -z-10" style={{ transform: "rotate(-4deg) translate(-14px, 18px)" }} />
