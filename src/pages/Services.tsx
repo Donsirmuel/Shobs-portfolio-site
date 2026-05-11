@@ -12,6 +12,22 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight, Sparkles, Eye } from "lucide-react";
+import { useCursorTilt } from "@/hooks/useCursorTilt";
+
+// Small inline wrapper to attach cursor-based tilt to a card
+const TiltShell = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
+  const tilt = useCursorTilt(6);
+  return (
+    <div
+      ref={tilt.ref}
+      onMouseMove={tilt.onMouseMove}
+      onMouseLeave={tilt.onMouseLeave}
+      className={`group relative perspective-1000 ${className}`}
+    >
+      {children}
+    </div>
+  );
+};
 
 const Services = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState<{ [key: number]: number }>({});
@@ -140,83 +156,90 @@ const Services = () => {
                     
                     return (
                       <ScrollReveal key={project.id} animation="slide-up" delay={index * 150}>
-                        <div className="group bg-card rounded-2xl overflow-hidden border-2 border-border hover:border-vibrant-pink transition-all duration-300 hover-lift">
-                          {/* Image Carousel */}
-                          <div className="relative aspect-[4/3] overflow-hidden bg-muted">
-                            <img 
-                              src={project.images[currentIndex]}
-                              alt={`${project.title} - Image ${currentIndex + 1}`}
-                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                              loading="lazy"
-                            />
-                            
-                            {/* View full size */}
-                            <button
-                              onClick={() => openLightbox(project.images, currentIndex, project.title)}
-                              className="absolute top-4 right-4 bg-background/80 hover:bg-background text-foreground rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                              aria-label="View full size"
-                            >
-                              <Eye className="w-5 h-5" />
-                            </button>
-                            
-                            {project.images.length > 1 && (
-                              <>
-                                <button
-                                  onClick={() => prevImage(project.id, project.images.length)}
-                                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background text-foreground rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                                  aria-label="Previous image"
-                                >
-                                  <ChevronLeft className="w-5 h-5" />
-                                </button>
-                                <button
-                                  onClick={() => nextImage(project.id, project.images.length)}
-                                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background text-foreground rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                                  aria-label="Next image"
-                                >
-                                  <ChevronRight className="w-5 h-5" />
-                                </button>
-                                
-                                {/* Image indicators */}
-                                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                                  {project.images.map((_, idx) => (
-                                    <div
-                                      key={idx}
-                                      className={`w-2 h-2 rounded-full transition-all ${
-                                        idx === currentIndex 
-                                          ? 'bg-vibrant-pink w-6' 
-                                          : 'bg-white/50'
-                                      }`}
-                                    />
-                                  ))}
-                                </div>
-                              </>
-                            )}
-                          </div>
+                        <TiltShell>
+                          <div className="tilt-3d card-stack sheen bg-card rounded-2xl overflow-hidden border border-border/60 shadow-md">
+                            {/* Image Carousel */}
+                            <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+                              <img
+                                src={project.images[currentIndex]}
+                                alt={`${project.title} - Image ${currentIndex + 1}`}
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
+                                loading="lazy"
+                              />
 
-                          {/* Project Info */}
-                          <div className="p-6">
-                            <h3 className="font-display text-2xl mb-3 text-foreground">
-                              {project.title}
-                            </h3>
-                            <p className="text-muted-foreground mb-4">
-                              {project.description}
-                            </p>
-                            
-                            {/* Project Story */}
-                            {project.challenge && (
-                              <div className="space-y-3 pt-4 border-t border-border">
-                                <div>
-                                  <span className="text-xs font-semibold uppercase tracking-wider text-vibrant-pink">Challenge</span>
-                                  <p className="text-sm text-muted-foreground mt-1">{project.challenge}</p>
-                                </div>
-                                <div>
-                                  <span className="text-xs font-semibold uppercase tracking-wider text-vibrant-purple">Outcome</span>
-                                  <p className="text-sm text-muted-foreground mt-1">{project.outcome}</p>
-                                </div>
+                              {/* View full size */}
+                              <button
+                                onClick={() => openLightbox(project.images, currentIndex, project.title)}
+                                className="absolute top-4 right-4 bg-background/85 hover:bg-background text-foreground rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity z-10"
+                                aria-label="View full size"
+                              >
+                                <Eye className="w-5 h-5" />
+                              </button>
+
+                              {project.images.length > 1 && (
+                                <>
+                                  <button
+                                    onClick={() => prevImage(project.id, project.images.length)}
+                                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-background/85 hover:bg-background text-foreground rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity z-10"
+                                    aria-label="Previous image"
+                                  >
+                                    <ChevronLeft className="w-5 h-5" />
+                                  </button>
+                                  <button
+                                    onClick={() => nextImage(project.id, project.images.length)}
+                                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-background/85 hover:bg-background text-foreground rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity z-10"
+                                    aria-label="Next image"
+                                  >
+                                    <ChevronRight className="w-5 h-5" />
+                                  </button>
+
+                                  {/* Image indicators */}
+                                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                                    {project.images.map((_, idx) => (
+                                      <div
+                                        key={idx}
+                                        className={`h-2 rounded-full transition-all ${
+                                          idx === currentIndex
+                                            ? 'bg-primary w-6'
+                                            : 'bg-background/70 w-2'
+                                        }`}
+                                      />
+                                    ))}
+                                  </div>
+                                </>
+                              )}
+
+                              {/* Sticker label */}
+                              <div className="absolute -top-3 -left-3 z-20 sticker px-3 py-1.5 text-[10px] uppercase tracking-[0.2em]">
+                                {project.category}
                               </div>
-                            )}
+                            </div>
+
+                            {/* Project Info */}
+                            <div className="p-6">
+                              <h3 className="font-display text-2xl mb-3 text-foreground">
+                                {project.title}
+                              </h3>
+                              <p className="text-muted-foreground mb-4">
+                                {project.description}
+                              </p>
+
+                              {/* Project Story */}
+                              {project.challenge && (
+                                <div className="space-y-3 pt-4 border-t border-border">
+                                  <div>
+                                    <span className="text-xs font-semibold uppercase tracking-wider text-primary">Challenge</span>
+                                    <p className="text-sm text-muted-foreground mt-1">{project.challenge}</p>
+                                  </div>
+                                  <div>
+                                    <span className="text-xs font-semibold uppercase tracking-wider text-accent">Outcome</span>
+                                    <p className="text-sm text-muted-foreground mt-1">{project.outcome}</p>
+                                  </div>
+                                </div>
+                              )}
+                            </div>
                           </div>
-                        </div>
+                        </TiltShell>
                       </ScrollReveal>
                     );
                   })}
@@ -270,27 +293,32 @@ const Services = () => {
                 const currentIndex = currentImageIndex[project.id] || 0;
                 return (
                   <ScrollReveal key={project.id} animation="scale-in" delay={index * 80}>
-                    <div className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-vibrant-pink transition-all duration-300 hover-lift">
-                      <div className="relative aspect-[4/3] overflow-hidden bg-muted cursor-pointer"
-                           onClick={() => openLightbox(project.images, 0, project.title)}>
-                        <img 
-                          src={project.images[currentIndex]}
-                          alt={`${project.title}`}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                          loading="lazy"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <div className="absolute bottom-4 left-4 right-4">
-                            <Badge className="bg-vibrant-pink text-white mb-2">{project.category}</Badge>
-                            <h3 className="text-white font-display text-lg">{project.title}</h3>
+                    <TiltShell>
+                      <div className="tilt-3d card-stack sheen bg-card rounded-2xl overflow-hidden border border-border/60 shadow-md">
+                        <div className="relative aspect-[4/3] overflow-hidden bg-muted cursor-pointer"
+                             onClick={() => openLightbox(project.images, 0, project.title)}>
+                          <img
+                            src={project.images[currentIndex]}
+                            alt={`${project.title}`}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08]"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div className="absolute bottom-4 left-4 right-4">
+                              <Badge className="bg-primary text-primary-foreground mb-2">{project.category}</Badge>
+                              <h3 className="text-background font-display text-lg">{project.title}</h3>
+                            </div>
+                          </div>
+                          <div className="absolute -top-3 -left-3 z-20 sticker px-3 py-1 text-[10px] uppercase tracking-[0.2em]">
+                            {project.category}
                           </div>
                         </div>
+                        <div className="p-4">
+                          <h3 className="font-display text-xl text-foreground mb-1">{project.title}</h3>
+                          <p className="text-sm text-muted-foreground line-clamp-2">{project.description}</p>
+                        </div>
                       </div>
-                      <div className="p-4">
-                        <h3 className="font-semibold text-foreground mb-1">{project.title}</h3>
-                        <p className="text-sm text-muted-foreground line-clamp-2">{project.description}</p>
-                      </div>
-                    </div>
+                    </TiltShell>
                   </ScrollReveal>
                 );
               })}

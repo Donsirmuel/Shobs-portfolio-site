@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Calendar, ArrowUpRight } from "lucide-react";
+import { useCursorTilt } from "@/hooks/useCursorTilt";
 
 interface BlogCardProps {
   title: string;
@@ -16,9 +17,15 @@ const BlogCard = ({ title, excerpt, image, author, date, category }: BlogCardPro
     month: "short",
     day: "numeric",
   });
+  const tilt = useCursorTilt(6);
 
   return (
-    <div className="group relative perspective-1000 cursor-pointer">
+    <div
+      ref={tilt.ref}
+      onMouseMove={tilt.onMouseMove}
+      onMouseLeave={tilt.onMouseLeave}
+      className="group relative perspective-1000 cursor-pointer"
+    >
       {/* Sticker */}
       <div className="absolute -top-3 left-4 z-20 sticker px-3 py-1 text-[10px] uppercase tracking-[0.2em]">
         {category}
