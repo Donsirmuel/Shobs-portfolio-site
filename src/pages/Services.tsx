@@ -293,27 +293,32 @@ const Services = () => {
                 const currentIndex = currentImageIndex[project.id] || 0;
                 return (
                   <ScrollReveal key={project.id} animation="scale-in" delay={index * 80}>
-                    <div className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-vibrant-pink transition-all duration-300 hover-lift">
-                      <div className="relative aspect-[4/3] overflow-hidden bg-muted cursor-pointer"
-                           onClick={() => openLightbox(project.images, 0, project.title)}>
-                        <img 
-                          src={project.images[currentIndex]}
-                          alt={`${project.title}`}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                          loading="lazy"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <div className="absolute bottom-4 left-4 right-4">
-                            <Badge className="bg-vibrant-pink text-white mb-2">{project.category}</Badge>
-                            <h3 className="text-white font-display text-lg">{project.title}</h3>
+                    <TiltShell>
+                      <div className="tilt-3d card-stack sheen bg-card rounded-2xl overflow-hidden border border-border/60 shadow-md">
+                        <div className="relative aspect-[4/3] overflow-hidden bg-muted cursor-pointer"
+                             onClick={() => openLightbox(project.images, 0, project.title)}>
+                          <img
+                            src={project.images[currentIndex]}
+                            alt={`${project.title}`}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08]"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div className="absolute bottom-4 left-4 right-4">
+                              <Badge className="bg-primary text-primary-foreground mb-2">{project.category}</Badge>
+                              <h3 className="text-background font-display text-lg">{project.title}</h3>
+                            </div>
+                          </div>
+                          <div className="absolute -top-3 -left-3 z-20 sticker px-3 py-1 text-[10px] uppercase tracking-[0.2em]">
+                            {project.category}
                           </div>
                         </div>
+                        <div className="p-4">
+                          <h3 className="font-display text-xl text-foreground mb-1">{project.title}</h3>
+                          <p className="text-sm text-muted-foreground line-clamp-2">{project.description}</p>
+                        </div>
                       </div>
-                      <div className="p-4">
-                        <h3 className="font-semibold text-foreground mb-1">{project.title}</h3>
-                        <p className="text-sm text-muted-foreground line-clamp-2">{project.description}</p>
-                      </div>
-                    </div>
+                    </TiltShell>
                   </ScrollReveal>
                 );
               })}
