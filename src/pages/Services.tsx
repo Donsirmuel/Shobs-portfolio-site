@@ -12,6 +12,22 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight, Sparkles, Eye } from "lucide-react";
+import { useCursorTilt } from "@/hooks/useCursorTilt";
+
+// Small inline wrapper to attach cursor-based tilt to a card
+const TiltShell = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
+  const tilt = useCursorTilt(6);
+  return (
+    <div
+      ref={tilt.ref}
+      onMouseMove={tilt.onMouseMove}
+      onMouseLeave={tilt.onMouseLeave}
+      className={`group relative perspective-1000 ${className}`}
+    >
+      {children}
+    </div>
+  );
+};
 
 const Services = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState<{ [key: number]: number }>({});
