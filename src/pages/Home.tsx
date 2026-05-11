@@ -38,11 +38,11 @@ const Home = () => {
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <ScrollReveal animation="slide-in-left">
-                <div className="relative">
+                <div className="relative max-w-sm mx-auto">
                   <img
                     src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop"
                     alt="Shobs - Professional Graphic Designer at work"
-                    className="rounded-2xl shadow-2xl ring-4 ring-vibrant-pink/20 w-full aspect-square object-cover"
+                    className="rounded-2xl shadow-2xl ring-4 ring-vibrant-pink/20 w-full aspect-[4/5] object-cover"
                     loading="lazy"
                   />
                   <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-vibrant-pink to-vibrant-purple rounded-full blur-2xl opacity-50 animate-pulse-slow" />
